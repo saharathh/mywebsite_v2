@@ -1,15 +1,35 @@
-import { AppBar, Toolbar, Tabs, Tab } from '@mui/material'
-import './Tabs.css';
+import { AppBar, Container, Grid, Typography, Toolbar, Tabs, Tab } from '@mui/material'
+import { styled } from '@mui/system';
+
+const CustomizedToolbar = styled(Toolbar)({
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+})
+
+const CustomizedTab = styled(Tab)({
+  color: 'black',
+  fontWeight: 400,
+  fontFamily: 'Helvetica'
+})
 
 function App() {
   return (
-    <AppBar className="appbar">
-      <Toolbar className="tabs">
+    <>
+    <AppBar position="relative">
+      <CustomizedToolbar>
         <Tabs>
-          <Tab label="home"></Tab>
+          <CustomizedTab label="home"></CustomizedTab>
+          <CustomizedTab label="What I can do for you"></CustomizedTab>
+          <CustomizedTab label="Projects"></CustomizedTab>
         </Tabs>
-      </Toolbar>
+      </CustomizedToolbar>
     </AppBar>
+    <Container>
+      <Grid>
+        <Typography>ABC</Typography>
+      </Grid>
+    </Container>
+    </>
   );
 }
 
