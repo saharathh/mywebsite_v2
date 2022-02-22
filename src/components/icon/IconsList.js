@@ -3,7 +3,7 @@ import { FaReact, FaSass, FaDocker, FaPython } from 'react-icons/fa';
 import { SiFirebase, SiMaterialui, SiFramer, SiPowerbi, SiPandas, 
     SiSelenium, SiScikitlearn, SiRedux, SiStyledcomponents } from 'react-icons/si';
 
-import {AiOutlineConsoleSql} from 'react-icons/ai';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 import { DiJavascript1 } from 'react-icons/di';
 
 export const IconsList = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, CustomizedIconComponent } from './components/index';
+import { Navbar } from './components/index';
 import { Expertise, Tool } from './containers/index';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div>
       <Navbar />
       <Expertise />
-      <CustomizedIconComponent />
+      <Tool />
     </div>
   );
 }
