@@ -6,10 +6,10 @@ import { MdWebAsset } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 import { GiShinyApple } from 'react-icons/gi';
 import Header from '../../components/header/Header.component';
-import { ReactComponent as Cart } from './cart.svg';
-import { ReactComponent as Robot } from './robot.svg';
-import { ReactComponent as Web } from './web.svg';
-import { ReactComponent as Monitor} from './monitor.svg';
+import Cart from './cart.svg';
+import Robot from './robot.svg';
+import Web from './web.svg';
+import Monitor from './monitor.svg';
 
 const projects = [{
     id: 1,
@@ -79,11 +79,16 @@ const Project = () => {
                             borderRadius: '12px',
                             boxShadow: 1,
                         }}>
+                        <img
+                            src={TheSvg}
+                            style={{height: 230, width: 280, padding: '2.5rem',}}
+                            alt="svg logo"
+                            >
+                        </img>
                             <Stack sx={{
                                 direction:'column',
                                 alignItems:'flex-start',
-                                px: 3,
-                                py: 3
+                                p: 3,
                             }}>
                                 <Box sx={{
                                     p: 2,
@@ -104,7 +109,7 @@ const Project = () => {
                                 </Box>
                                 <Typography sx={{
                                     px: 2,
-                                    py: 1,
+                                    py: 2,
                                     fontSize: 14,
                                     fontWeight: 400,
                                     color: '#899198'
@@ -118,14 +123,15 @@ const Project = () => {
                                     justifyContent: 'center',
                                 }}>
                                     <Typography sx={{
+                                        pr: 1,
                                         fontSize: 16,
                                         fontWeight: 'bold',
                                         color: '#B0384D',
+                                        display: { xs:'none', md: 'flex', lg: 'flex'},
                                     }}>
-                                        Skills: 
+                                        Skills : 
                                     </Typography>
                                     <Typography sx={{
-                                        pl: 2,
                                         pt: '1px',
                                         fontSize: 14,
                                         fontWeight: 400,
@@ -137,7 +143,7 @@ const Project = () => {
                                 <Button variant="contained" href={project.github_link} sx={{
                                     backgroundColor: '#F28346',
                                     px: 2,
-                                    mx: 2,
+                                    m: 2,
                                 }}>
                                     View Project
                                 </Button>
