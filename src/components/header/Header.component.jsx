@@ -3,7 +3,12 @@ import { Typography, Box } from '@mui/material';
 
 const Header = ({subHeader, Header, AdditionalHeader, textSubtitle}) => {
     return (
-        <Box sx={{ py:4 }}>
+        <Box sx={{ py:4, mx: {
+            xs: 1,
+            sm: 1,
+            md: 2,
+            lg: 0,
+        } }}>
             <Typography sx={{
                 color: 'orange',
                 fontSize: 14,
@@ -16,14 +21,24 @@ const Header = ({subHeader, Header, AdditionalHeader, textSubtitle}) => {
             <Typography sx={{
                 mb: 1,
                 color: '#B0384D',
-                fontSize: 32,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontSize: {
+                    xs: 28,
+                    sm: 28,
+                    md: 32,
+                    lg: 32,
+                }
             }}>
                 {Header}
             </Typography>
             <Typography sx={{
                 color: '#F28346',
-                fontSize: 24,
+                fontSize: {
+                    xs: 20,
+                    sm: 20,
+                    md: 24,
+                    lg: 28,
+                }
             }}>
                 {AdditionalHeader}
             </Typography>

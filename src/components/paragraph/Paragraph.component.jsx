@@ -1,52 +1,30 @@
 import React from 'react';
-import {Typography} from '@mui/material';
+import {Typography, Box} from '@mui/material';
 
-const Paragraph = ({paragraph1, paragraph2, paragraph3, paragraph4, paragraph5}) => {
+const Paragraph = ({paragraph}) => {
     return (
         <>
-        <Typography sx={{
+        <Box sx={{
             color: '#899198',
             fontWeight: 400,
             letterSpacing: 0.5,
             textAlign: 'justify',
-        }}>
-           {paragraph1}
-        </Typography>
-        <Typography sx={{
-            my: 2,
-            color: '#899198',
-            fontWeight: 400,
-            letterSpacing: 0.5,
-            textAlign: 'justify',
-        }}>
-           {paragraph2}
-        </Typography>
-        <Typography sx={{
-            my: 2,
-            color: '#899198',
-            fontWeight: 400,
-            letterSpacing: 0.5,
-            textAlign: 'justify',
-        }}>
-          {paragraph3}
-        </Typography>
-        <Typography sx={{
-            my: 2,
-            color: '#899198',
-            fontWeight: 400,
-            letterSpacing: 0.5,
-            textAlign: 'justify',
-        }}>
-           {paragraph4}
-        </Typography>
-        <Typography sx={{
-            color: '#899198',
-            fontWeight: 400,
-            letterSpacing: 0.5,
-            textAlign: 'justify',
-        }}>
-            {paragraph5}
-        </Typography>
+            fontSize: {
+                xs: 16,
+                sm: 16,
+                md: 18,
+                lg: 18,
+            },
+            m: {
+                xs: 2,
+                sm: 2,
+                md: 2.5,
+            },
+            ml: {
+                lg: 4,
+            }}}>     
+            {paragraph}
+        </Box>
         </>
     )
 }

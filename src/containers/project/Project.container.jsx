@@ -1,15 +1,14 @@
 import React from 'react';
-import { Box, Button, Chip, Container, Grid, Paper, Stack, SvgIcon, Typography } from '@mui/material'
-import { FaFireAlt, FaFlask, FaGem, FaFire, FaFileDownload } from 'react-icons/fa';
-import { FiShoppingCart } from 'react-icons/fi';
-import { MdWebAsset } from 'react-icons/md';
+import { Box, Button, Chip, Container, Grid, Stack, Typography } from '@mui/material'
+import { BsFillCartCheckFill } from 'react-icons/bs';
+import { FaGem } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
-import { GiShinyApple } from 'react-icons/gi';
+import { GiShinyApple, GiRobotAntennas } from 'react-icons/gi';
 import Header from '../../components/header/Header.component';
-import Cart from './cart.svg';
-import Robot from './robot.svg';
-import Web from './web.svg';
-import Monitor from './monitor.svg';
+import Cart from '../../assets/cart.svg';
+import Robot from '../../assets/robot.svg';
+import Web from '../../assets/web.svg';
+import Monitor from '../../assets/monitor.svg';
 
 const projects = [{
     id: 1,
@@ -17,23 +16,23 @@ const projects = [{
     progress: 'Finished',
     subtitle: "A singple-page web application for fashion businessses. Fully responsive with log-in features, StripeAPI for payment method, and routing with React-router-dom.",
     github_link: 'https://github.com/saharathh/e_commerce_project_1',
-    skills: 'ReactJs, Redux, Sass, Firebase',
-    icon_ref: FiShoppingCart,
+    skills: 'ReactJs, Redux, Scss, Firebase',
+    icon_ref: BsFillCartCheckFill,
     pic_ref: Cart
 },
 {
     id: 2,
-    title: "Gather 300+ pages of customer's review in 20 minutes",
+    title: "Single Page Application (SPA) Web Scraping",
     progress: 'Finished',
-    subtitle: 'Gathering data from the Internet can be time-consuming; With knowledge in web scraping, it can save your time from gathering data by at least 50%',
+    subtitle: "Web Scraping on SPA can be challenging, but not impossible. In this project, I gathered 300+ pages of customer's review in 20 minutes, reducing my work time at least 50%.",
     github_link: '',
     skills: 'Python, Selenium, Pandas, Web Scraping',
-    icon_ref: MdWebAsset,
+    icon_ref: GiRobotAntennas,
     pic_ref: Robot
 },
 {
     id: 3,
-    title: 'My Website',
+    title: "My Portfolio Website",
     progress: 'on-going',
     subtitle: "I always learn about new technology, frameworks or libraries that can boost my quality of work. Next time you visit this website, it might not look the same, but I will make sure that it will be better.",
     github_link: 'https://github.com/saharathh/mywebsite_v2',
@@ -56,8 +55,8 @@ const projects = [{
 
 const Project = () => {
     return (
-        <Container sx={{
-            py:8
+        <Container href="#project" sx={{
+            py:12
         }}>
             <Header 
                 subHeader="Projects" 
@@ -79,40 +78,89 @@ const Project = () => {
                             borderRadius: '12px',
                             boxShadow: 1,
                         }}>
-                        <img
-                            src={TheSvg}
-                            style={{height: 230, width: 280, padding: '2.5rem',}}
-                            alt="svg logo"
-                            >
-                        </img>
+                        <Box sx={{
+                            display: {
+                                xs: 'none',
+                                sm: 'none',
+                                md: 'flex',
+                                lg: 'flex'
+                            }
+                        }}>
+                            <img
+                                src={TheSvg}
+                                style={{height: 230, width: 280, padding: '2.5rem',}}
+                                alt="svg logo"
+                                >
+                            </img>
+                        </Box>
+                        <Box sx={{
+                            display: {
+                                xs: 'flex',
+                                sm: 'flex',
+                                md: 'none',
+                                lg: 'none'
+                            }
+                        }}>
+                            <img
+                                src={TheSvg}
+                                style={{height: '90%', width: '90%', padding: '2rem',}}
+                                alt="svg logo"
+                                >
+                            </img>
+                        </Box>                    
                             <Stack sx={{
                                 direction:'column',
                                 alignItems:'flex-start',
                                 p: 3,
                             }}>
                                 <Box sx={{
-                                    p: 2,
                                     display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'flex-end',
                                 }}>
-                                    <IconContext.Provider value={{color: '#B0384D', size: '24px'}}>
-                                        <TheIconTitle />
-                                    </IconContext.Provider>
-                                    <Typography sx={{
-                                        px:2,
-                                        fontWeight: 'bold',
+                                    <Box sx={{
+                                        p: 2,
+                                        justifyContent: 'flex-end',
+                                        alignItems: 'flex-end',
+                                        flexDirection: 'row',
+                                        display: {
+                                            xs: 'none',
+                                            sm: 'none',
+                                            md: 'flex',
+                                            lg: 'flex',
+                                        }
                                     }}>
-                                        {project.title}
-                                    </Typography>
-                                    <Chip label={project.progress} size='small' sx={{
-                                        px: 1,
-                                    }}/>
+                                        <IconContext.Provider value={{color: '#B0384D', size: '28px'}}>
+                                            <TheIconTitle />
+                                        </IconContext.Provider>
+                                    </Box>
+                                    <Box>
+                                    <Typography sx={{
+                                            px:2,
+                                            fontWeight: 'bold',
+                                        }}>
+                                            {project.title}
+                                        </Typography>
+                                        <Chip label={project.progress} size='small' sx={{
+                                            px: 1,
+                                            display: {
+                                                xs: 'none',
+                                            }
+                                        }}/>
+                                    </Box>
                                 </Box>
                                 <Typography sx={{
                                     px: 2,
                                     py: 2,
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     fontWeight: 400,
-                                    color: '#899198'
+                                    color: '#899198',
+                                    display: {
+                                        xs: 'none',
+                                        sm: 'none',
+                                        md: 'flex',
+                                        lg: 'flex',
+                                    },
                                 }}>
                                     {project.subtitle}
                                 </Typography>
@@ -144,6 +192,8 @@ const Project = () => {
                                     backgroundColor: '#F28346',
                                     px: 2,
                                     m: 2,
+                                    '&:hover': {
+                                        backgroundColor: '#B0384D',}
                                 }}>
                                     View Project
                                 </Button>

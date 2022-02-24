@@ -1,22 +1,28 @@
 import React from 'react';
-import './timeline.styles.scss';
+import { Container, Grid, Stack, Box, Typography, } from '@mui/material';
+import StackText from './StackText.component';
+
 
 const Timeline = () => {
     return (
-        <div class="timeline">
-            <div class="container left">
-                <div class="content">
-                    <h2>2017</h2>
-                    <p>Lorem ipsum..</p>
-                </div>
-            </div>
-            <div class="container right">
-                <div class="content">
-                    <h2>2016</h2>
-                    <p>Lorem ipsum..</p>
-                </div>
-            </div>
-        </div>
+        <Box sx={{
+            display: 'flex',
+            mx: {
+                xs: 1,
+                sm: 1,
+                md: 2,
+                lg: 0,
+            },
+        }}>
+            <Stack sx={{
+                display: 'flex',
+                flexDirection: 'column',
+            }}>
+                <StackText year="2015" text="Thamasat University" subtext="Bachelor's degree in Entreprenuership and Management"/>
+                <StackText year="2020" text="Noble Development" subtext="Feasibility Analyst"/>
+                <StackText year="2021" text="NIDA University" subtext="Master's degree in Communication Art and Management Innovation"/>
+            </Stack>
+        </Box>
     )
 }
 

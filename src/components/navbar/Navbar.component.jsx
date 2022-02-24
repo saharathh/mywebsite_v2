@@ -1,12 +1,40 @@
 import React, { useState } from 'react';
-import {AppBar, Button, Box, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
+import { AppBar, Button, Box, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import { RiMenu2Line } from 'react-icons/ri';
-import MaterialUISwitch from '../switch/MuiSwitch.component';
+import Apple from '../../assets/apple.svg';
 
-const pages = ["Home", "Expertise", "Projects", "Toolkits", "About"];
+
+// const pages = ["Home", "Expertise", "Projects", "Toolkits", "About"];
+
+const pages = [
+  {
+    id: 1,
+    link: "#home",
+    menu: "Home",
+  },
+  {
+    id: 2,
+    link: "#expertise",
+    menu: "Expertise",
+  },
+  {
+    id: 3,
+    link: "#project",
+    menu: "Projects",
+  },
+  {
+    id: 4,
+    link: "#toolkits",
+    menu: "Toolkits",
+  },
+  {
+    id: 5,
+    link: "#about",
+    menu: "About",
+  }]
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -23,10 +51,9 @@ const Navbar = () => {
         borderColor: '#E0E3E7',
       }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-
-        
-        {/* Mobile Devices*/}
+        <Toolbar disableGutters>  
+        {/* Mobile Devices___________________________________________________________________________*/}
+        {/* Logo Name__________________________________________*/}
           <Typography
             variant="h6"
             noWrap
@@ -41,13 +68,20 @@ const Navbar = () => {
                 '&:hover':{
                     color: '#F28346',}}}
           >
-            SAHARATH
+            SAHARATH  
+            <img
+              src={Apple}
+              style={{height: 35, width: 35, paddingLeft: '0.5rem',}}
+              alt="svg logo"
+              >
+            </img>
           </Typography>
+          {/* End Logo Name____________________________________*/}
 
+          {/* Menu bar on mobile_______________________________*/}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -72,17 +106,18 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },}}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem component="a" href={page.link} key={page.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" sx={{
                       px:4, 
                       '&:hover': {
                         fontWeight: 'bold',
                         color: '#B0384D',}
-                  }}>{page}</Typography>
+                  }}>{page.menu}</Typography>
                 </MenuItem>
               ))}
             </Menu>
-        {/* End Mobile section*/}
+        {/* End Menu bar on mobile__________________*/}
+        {/* End Mobile section________________________________________*/}
 
 
         {/* Desktop Screen*/}
@@ -94,30 +129,28 @@ const Navbar = () => {
             sx={{ color: '#B0384D', fontWeight: 'bold', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             SAHARATH
+            <img
+              src={Apple}
+              style={{height: 30, width: 30, paddingLeft: '0.5rem',}}
+              alt="svg logo"
+              >
+            </img>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.id}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', px:2,
-                color: 'black',
+                sx={{ my: 2, color: 'black', display: 'block', px:2,
                 fontWeight: 550,
                 fontSize: 16,
                 fontFamily: 'Helvetica',
-                textTransform: 'Capitalize',
-                '&:hover':{
-                    color: '#FFF',
-                    borderRadius: '6px',
-                    backgroundColor: '#B0384D',
-                    opacity: '70%',
-                }}}
+                textTransform: 'Capitalize',}}
               >
-                {page}
+                {page.menu}
               </Button>
             ))}
           </Box>
-          <MaterialUISwitch />
         {/* End Desktop Section*/}
         </Toolbar>
       </Container>
@@ -125,75 +158,3 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
-// const menus = ["Home", "Expertise", "Projects", "Toolkits"]
-
-// const ResponsiveMenu = () => (
-//   <Tabs sx={{px:4, display: {xs: 'none', md: 'flex', lg: 'flex'}}}>
-//     {menus.map(menu => (
-//       <Tab label={menu} sx={{
-//         px:4,
-//         fontWeight: 550,
-//         fontSize: 16,
-//         fontFamily: 'Helvetica',
-//         textTransform: 'Capitalize',
-//         '&:hover':{
-//           color: '#fff',
-//           borderRadius: '12px',
-//           transform: 'scale(1) perspective(0px)',
-//           backgroundColor: '#B0384D',
-//           opacity: '70%',
-//           }}}>
-//         </Tab>
-//     ))}
-//   </Tabs>
-// )
-
-// const Navbar = () => {
-//     const [toggleMenu, setToggleMenu] = useState(false);
-
-//     return (
-//         <AppBar position="fixed" elevation={0} sx={{
-//           backgroundColor: '#fff',
-//           borderBottom: 1,
-//           borderColor: '#E0E3E7'
-//         }}>
-//             <Toolbar sx={{
-//               justifyContent: 'space-between',
-//               alignItems: 'center',
-//             }}>
-//                 {/* <Tabs sx={{px:4, display: {xs: 'none', md: 'flex', lg: 'flex'}}}>
-//                 {menus.map(menu => (
-//                   <Tab label={menu} sx={{
-//                     px:4,
-//                     fontWeight: 550,
-//                     fontSize: 16,
-//                     fontFamily: 'Helvetica',
-//                     textTransform: 'Capitalize',
-//                     '&:hover':{
-//                       color: '#fff',
-//                       borderRadius: '12px',
-//                       transform: 'scale(1) perspective(0px)',
-//                       backgroundColor: '#B0384D',
-//                       opacity: '70%',
-//                       }}}>
-//                     </Tab>
-//                 ))}
-//                 </Tabs> */}
-//                 <ResponsiveMenu />
-//                 <Tabs sx={{m:1, display: {xs: 'flex', md: 'none', lg: 'none'}, alignItems:'center'}}>
-//                 {toggleMenu
-//                     ? <RiCloseLine color="#000000" size={20} onClick={() => setToggleMenu(false)} />
-//                     : <RiMenu2Line color="#000000" size={20} onClick={() => setToggleMenu(true)} />
-//                 }
-//                     {toggleMenu && (
-//                       <ResponsiveMenu />
-//                 )}
-//                 </Tabs>
-//                 <MaterialUISwitch sx={{ m: 1 }} defaultChecked />
-//             </Toolbar>
-//         </AppBar>
-//     )
-// }
-
-// export default Navbar;

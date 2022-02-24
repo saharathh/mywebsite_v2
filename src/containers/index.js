@@ -3,3 +3,4 @@ export {default as Hero} from './hero/Hero.container';
 export {default as Tool} from './tool/Tool.container';
 export {default as Project} from './project/Project.container';
 export {default as About} from './about/About.container';
+export {default as CTA} from './cta/CTA.container';
