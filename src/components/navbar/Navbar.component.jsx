@@ -24,7 +24,7 @@ const pages = [
   },
   {
     id: 4,
-    link: "#toolkits",
+    link: "#tool",
     menu: "Toolkits",
   },
   {
@@ -51,7 +51,10 @@ const Navbar = () => {
         borderColor: '#E0E3E7',
       }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>  
+        <Toolbar disableGutters sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+        }}>  
         {/* Mobile Devices___________________________________________________________________________*/}
         {/* Logo Name__________________________________________*/}
           <Typography
@@ -79,7 +82,7 @@ const Navbar = () => {
           {/* End Logo Name____________________________________*/}
 
           {/* Menu bar on mobile_______________________________*/}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, }}>
             <IconButton
               size="large"
               aria-controls="menu-appbar"
@@ -106,7 +109,7 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },}}>
               {pages.map((page) => (
-                <MenuItem component="a" href={page.link} key={page.id} onClick={handleCloseNavMenu}>
+                <MenuItem component="a" key={page.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" sx={{
                       px:4, 
                       '&:hover': {
@@ -122,34 +125,41 @@ const Navbar = () => {
 
         {/* Desktop Screen*/}
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ color: '#B0384D', fontWeight: 'bold', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            SAHARATH
-            <img
-              src={Apple}
-              style={{height: 30, width: 30, paddingLeft: '0.5rem',}}
-              alt="svg logo"
-              >
-            </img>
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
-            {pages.map((page) => (
-              <Button
-                key={page.id}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', px:2,
-                fontWeight: 550,
-                fontSize: 16,
-                fontFamily: 'Helvetica',
-                textTransform: 'Capitalize',}}
-              >
-                {page.menu}
-              </Button>
-            ))}
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ color: '#B0384D', fontWeight: 'bold', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            >
+              SAHARATH
+              <img
+                src={Apple}
+                style={{height: 30, width: 30, paddingLeft: '0.5rem',}}
+                alt="svg logo"
+                >
+              </img>
+            </Typography>
+            <Box sx={{ flexGrow: 1, mr: 3, display: { xs: 'none', md: 'flex' }, }}>
+              {pages.map((page) => (
+                <Button
+                  component="a"
+                  href={page.link}
+                  key={page.id}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'black', display: 'block', px:2,
+                  fontWeight: 550,
+                  fontSize: 16,
+                  fontFamily: 'Helvetica',
+                  textTransform: 'Capitalize',}}
+                >
+                  {page.menu}
+                </Button>
+              ))}
+            </Box>
           </Box>
         {/* End Desktop Section*/}
         </Toolbar>

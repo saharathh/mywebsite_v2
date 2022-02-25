@@ -55,154 +55,163 @@ const projects = [{
 
 const Project = () => {
     return (
-        <Container href="#project" sx={{
-            py:12
-        }}>
-            <Header 
-                subHeader="Projects" 
-                Header="My Projects" 
-            />
-            <Grid container spacing={4}>
-            {projects.map(project => {
-                const TheIconTitle = project.icon_ref
-                const TheSvg = project.pic_ref
-                return (
-                    <Grid item key={project.id} md={12} lg={12}>
-                        <Box sx={{
-                            display: 'flex',
-                            flexDirection: { xs: 'column', md: 'row' },
-                            alignItems: 'center',
-                            overflow: 'hidden',
-                            border: 1,
-                            borderColor: '#E0E3E7',
-                            borderRadius: '12px',
-                            boxShadow: 1,
-                        }}>
-                        <Box sx={{
-                            display: {
-                                xs: 'none',
-                                sm: 'none',
-                                md: 'flex',
-                                lg: 'flex'
-                            }
-                        }}>
-                            <img
-                                src={TheSvg}
-                                style={{height: 230, width: 280, padding: '2.5rem',}}
-                                alt="svg logo"
-                                >
-                            </img>
-                        </Box>
-                        <Box sx={{
-                            display: {
-                                xs: 'flex',
-                                sm: 'flex',
-                                md: 'none',
-                                lg: 'none'
-                            }
-                        }}>
-                            <img
-                                src={TheSvg}
-                                style={{height: '90%', width: '90%', padding: '2rem',}}
-                                alt="svg logo"
-                                >
-                            </img>
-                        </Box>                    
-                            <Stack sx={{
-                                direction:'column',
-                                alignItems:'flex-start',
-                                p: 3,
+        <div id="project">
+            <Container sx={{
+                py:12
+            }}>
+                <Header 
+                    subHeader="Projects" 
+                    Header="My Projects" 
+                />
+                <Grid container spacing={4}>
+                {projects.map(project => {
+                    const TheIconTitle = project.icon_ref
+                    const TheSvg = project.pic_ref
+                    return (
+                        <Grid item key={project.id} md={12} lg={12}>
+                            <Box sx={{
+                                display: 'flex',
+                                flexDirection: { xs: 'column', md: 'row' },
+                                alignItems: 'center',
+                                overflow: 'hidden',
+                                border: 1,
+                                borderColor: '#E0E3E7',
+                                borderRadius: '12px',
+                                boxShadow: 1,
                             }}>
-                                <Box sx={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    alignItems: 'flex-end',
+                            <Box sx={{
+                                display: {
+                                    xs: 'none',
+                                    sm: 'none',
+                                    md: 'flex',
+                                    lg: 'flex'
+                                }
+                            }}>
+                                <img
+                                    src={TheSvg}
+                                    style={{height: 230, width: 280, padding: '2.5rem',}}
+                                    alt="svg logo"
+                                    >
+                                </img>
+                            </Box>
+                            <Box sx={{
+                                display: {
+                                    xs: 'flex',
+                                    sm: 'flex',
+                                    md: 'none',
+                                    lg: 'none'
+                                },
+                            }}>
+                                <img
+                                    src={TheSvg}
+                                    style={{height: '90%', width: '90%', padding: '2rem',}}
+                                    alt="svg logo"
+                                    >
+                                </img>
+                            </Box>                    
+                                <Stack sx={{
+                                    direction:'column',
+                                    p: 3,
+                                    alignItems: {
+                                        xs: 'center',
+                                        sm: 'center',
+                                        md: 'flex-start',
+                                        lg: 'flex-start'
+                                    }
                                 }}>
                                     <Box sx={{
-                                        p: 2,
-                                        justifyContent: 'flex-end',
-                                        alignItems: 'flex-end',
+                                        display: 'flex',
                                         flexDirection: 'row',
+                                        alignItems: 'center',
+                                    }}>
+                                        <Box sx={{
+                                            p: 2,
+                                            display: {
+                                                xs: 'none',
+                                                sm: 'none',
+                                                md: 'flex',
+                                                lg: 'flex',
+                                            },
+                                        }}>
+                                            <IconContext.Provider value={{color: '#B0384D', size: '28px'}}>
+                                                <TheIconTitle />
+                                            </IconContext.Provider>
+                                        </Box>
+                                        <Box>
+                                            <Typography sx={{
+                                                fontWeight: 'bold',
+                                                fontSize: {
+                                                    xs: 16,
+                                                    sm: 16,
+                                                    md: 18,
+                                                    lg: 18,
+                                                }
+                                            }}>
+                                                {project.title}
+                                            </Typography>
+                                            <Chip label={project.progress} size='small' sx={{
+                                                px: 1,
+                                                display: {
+                                                    xs: 'none',
+                                                }
+                                            }}/>
+                                        </Box>
+                                    </Box>
+                                    <Typography sx={{
+                                        px: 2,
+                                        py: 2,
+                                        fontSize: 16,
+                                        fontWeight: 400,
+                                        color: '#899198',
                                         display: {
                                             xs: 'none',
                                             sm: 'none',
                                             md: 'flex',
                                             lg: 'flex',
-                                        }
+                                        },
                                     }}>
-                                        <IconContext.Provider value={{color: '#B0384D', size: '28px'}}>
-                                            <TheIconTitle />
-                                        </IconContext.Provider>
-                                    </Box>
-                                    <Box>
-                                    <Typography sx={{
-                                            px:2,
+                                        {project.subtitle}
+                                    </Typography>
+                                    <Box sx={{
+                                        p: 2,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                    }}>
+                                        <Typography sx={{
+                                            pr: 1,
+                                            fontSize: 16,
                                             fontWeight: 'bold',
+                                            color: '#B0384D',
+                                            display: { xs:'none', sm:'none', md: 'none', lg: 'flex'},
                                         }}>
-                                            {project.title}
+                                            Skills : 
                                         </Typography>
-                                        <Chip label={project.progress} size='small' sx={{
-                                            px: 1,
-                                            display: {
-                                                xs: 'none',
-                                            }
-                                        }}/>
+                                        <Typography sx={{
+                                            pt: '1px',
+                                            fontSize: 14,
+                                            fontWeight: 400,
+                                            color: '#B0384D',
+                                        }}>
+                                            {project.skills}
+                                        </Typography>
                                     </Box>
-                                </Box>
-                                <Typography sx={{
-                                    px: 2,
-                                    py: 2,
-                                    fontSize: 16,
-                                    fontWeight: 400,
-                                    color: '#899198',
-                                    display: {
-                                        xs: 'none',
-                                        sm: 'none',
-                                        md: 'flex',
-                                        lg: 'flex',
-                                    },
-                                }}>
-                                    {project.subtitle}
-                                </Typography>
-                                <Box sx={{
-                                    p: 2,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}>
-                                    <Typography sx={{
-                                        pr: 1,
-                                        fontSize: 16,
-                                        fontWeight: 'bold',
-                                        color: '#B0384D',
-                                        display: { xs:'none', md: 'flex', lg: 'flex'},
+                                    <Button variant="contained" href={project.github_link} sx={{
+                                        backgroundColor: '#F28346',
+                                        px: 2,
+                                        m: 2,
+                                        '&:hover': {
+                                            backgroundColor: '#B0384D',}
                                     }}>
-                                        Skills : 
-                                    </Typography>
-                                    <Typography sx={{
-                                        pt: '1px',
-                                        fontSize: 14,
-                                        fontWeight: 400,
-                                        color: '#B0384D',
-                                    }}>
-                                        {project.skills}
-                                    </Typography>
-                                </Box>
-                                <Button variant="contained" href={project.github_link} sx={{
-                                    backgroundColor: '#F28346',
-                                    px: 2,
-                                    m: 2,
-                                    '&:hover': {
-                                        backgroundColor: '#B0384D',}
-                                }}>
-                                    View Project
-                                </Button>
-                            </Stack>
-                        </Box>
-                    </Grid>
-                )})}
-            </Grid>
-        </Container>
+                                        View Project
+                                    </Button>
+                                </Stack>
+                            </Box>
+                        </Grid>
+                    )})}
+                </Grid>
+            </Container>
+        </div>
     )
 }
 

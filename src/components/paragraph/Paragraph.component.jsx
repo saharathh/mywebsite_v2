@@ -5,10 +5,10 @@ const Paragraph = ({paragraph}) => {
     return (
         <>
         <Box sx={{
-            color: '#899198',
+            color: '#5C6E8A',
             fontWeight: 400,
-            letterSpacing: 0.5,
-            textAlign: 'justify',
+            fontFamily: 'Helvetica',
+            lineHeight: 1.5,
             fontSize: {
                 xs: 16,
                 sm: 16,
