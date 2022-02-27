@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from './components/index';
-import { Expertise, Hero, Tool, Project, About, CTA } from './containers/index';
-import { Routes, Route, } from "react-router-dom";
+import { Expertise, Hero, Tool, Project, About } from './containers/index';
 
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
       <Project />
       <About />
       <Tool />
-      <CTA />
     </div>
   )
 };

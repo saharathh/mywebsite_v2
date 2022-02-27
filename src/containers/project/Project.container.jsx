@@ -1,20 +1,19 @@
 import React from 'react';
-import { Box, Button, Chip, Container, Grid, Stack, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { FaGem } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
-import { GiShinyApple, GiRobotAntennas } from 'react-icons/gi';
+import { GiShinyApple } from 'react-icons/gi';
 import Header from '../../components/header/Header.component';
 import Cart from '../../assets/cart.svg';
-import Robot from '../../assets/robot.svg';
 import Web from '../../assets/web.svg';
 import Monitor from '../../assets/monitor.svg';
 
 const projects = [{
     id: 1,
     title: 'E-Commerce Website',
-    progress: 'Finished',
-    subtitle: "A singple-page web application for fashion businessses. Fully responsive with log-in features, StripeAPI for payment method, and routing with React-router-dom.",
+    progress: 'on-going',
+    subtitle: "I am trying to build a singple-page web application for fashion businessses with StripeAPI as payment method.",
     github_link: 'https://github.com/saharathh/e_commerce_project_1',
     skills: 'ReactJs, Redux, Scss, Firebase',
     icon_ref: BsFillCartCheckFill,
@@ -22,31 +21,21 @@ const projects = [{
 },
 {
     id: 2,
-    title: "Single Page Application (SPA) Web Scraping",
-    progress: 'Finished',
-    subtitle: "Web Scraping on SPA can be challenging, but not impossible. In this project, I gathered 300+ pages of customer's review in 20 minutes, reducing my work time at least 50%.",
-    github_link: '',
-    skills: 'Python, Selenium, Pandas, Web Scraping',
-    icon_ref: GiRobotAntennas,
-    pic_ref: Robot
-},
-{
-    id: 3,
     title: "My Portfolio Website",
     progress: 'on-going',
     subtitle: "I always learn about new technology, frameworks or libraries that can boost my quality of work. Next time you visit this website, it might not look the same, but I will make sure that it will be better.",
     github_link: 'https://github.com/saharathh/mywebsite_v2',
-    skills: 'ReactJs, MatterJS, Material-UI, Sass, Framer Motion, Firebase',
+    skills: 'ReactJs, Material-UI, React Spring',
     icon_ref: GiShinyApple,
     pic_ref: Web
 },
 {
-    id: 4,
-    title: 'Independent Study : Full-Stack Social Monitoring Tool Prototype',
+    id: 3,
+    title: 'Full-Stack Social Monitoring Tool Prototype',
     progress: 'on-going',
     subtitle: "I'm interviewing digital marketers and content creators to find their absolute need features and build my social monitoring tool powered by NLP technology based on the interview's insight.",
     github_link: '',
-    skills: 'MongoDB, ExpressJS, ReactJS, NodeJS, TwitterAPI, Scrapy, Pandas, Scikit-learn, Machine Learning',
+    skills: 'MongoDB, ExpressJS, ReactJS, NodeJS, TwitterAPI, Pandas, Scikit-learn, Machine Learning',
     icon_ref: FaGem,
     pic_ref: Monitor
 },];
@@ -113,8 +102,8 @@ const Project = () => {
                                     direction:'column',
                                     p: 3,
                                     alignItems: {
-                                        xs: 'center',
-                                        sm: 'center',
+                                        xs: 'flex-start',
+                                        sm: 'flex-start',
                                         md: 'flex-start',
                                         lg: 'flex-start'
                                     }
@@ -137,24 +126,19 @@ const Project = () => {
                                                 <TheIconTitle />
                                             </IconContext.Provider>
                                         </Box>
-                                        <Box>
-                                            <Typography sx={{
-                                                fontWeight: 'bold',
-                                                fontSize: {
-                                                    xs: 16,
-                                                    sm: 16,
-                                                    md: 18,
-                                                    lg: 18,
-                                                }
-                                            }}>
-                                                {project.title}
-                                            </Typography>
-                                            <Chip label={project.progress} size='small' sx={{
-                                                px: 1,
-                                                display: {
-                                                    xs: 'none',
-                                                }
-                                            }}/>
+                                        <Box sx={{
+                                            display: 'in-line',
+                                            alignItems: 'center',
+                                            fontFamily: 'Helvetica',
+                                            fontWeight: 'bold',
+                                            fontSize: {
+                                                xs: 16,
+                                                sm: 16,
+                                                md: 18,
+                                                lg: 18,
+                                            }
+                                        }}>
+                                            {project.title}
                                         </Box>
                                     </Box>
                                     <Typography sx={{
@@ -173,13 +157,27 @@ const Project = () => {
                                         {project.subtitle}
                                     </Typography>
                                     <Box sx={{
-                                        p: 2,
+                                        p: {
+                                            xs: 0,
+                                            sm: 0,
+                                            md: 2,
+                                            lg: 2,
+                                        },
+                                        py: {
+                                            xs: 1,
+                                            sm: 1,
+                                        },
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                     }}>
                                         <Typography sx={{
-                                            pr: 1,
+                                            pr: {
+                                                xs: 0,
+                                                sm: 0,
+                                                md: 1,
+                                                lg: 1,
+                                            },
                                             fontSize: 16,
                                             fontWeight: 'bold',
                                             color: '#B0384D',
@@ -190,21 +188,59 @@ const Project = () => {
                                         <Typography sx={{
                                             pt: '1px',
                                             fontSize: 14,
+                                            fontFamily: 'Helvetica',
                                             fontWeight: 400,
                                             color: '#B0384D',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
                                         }}>
                                             {project.skills}
                                         </Typography>
                                     </Box>
-                                    <Button variant="contained" href={project.github_link} sx={{
-                                        backgroundColor: '#F28346',
-                                        px: 2,
-                                        m: 2,
-                                        '&:hover': {
-                                            backgroundColor: '#B0384D',}
-                                    }}>
-                                        View Project
-                                    </Button>
+                                    {project.github_link !== "" &&
+                                        <Button variant="contained" 
+                                        href={project.github_link} 
+                                        sx={{
+                                            backgroundColor: '#F28346',
+                                            px: 2,
+                                            m: {
+                                                xs: 0,
+                                                sm: 0,
+                                                md: 2,
+                                                lg: 2,
+                                            },
+                                            my: {
+                                                xs: 2,
+                                                sm: 2,
+                                                md: 0,
+                                                lg: 0,
+                                            },
+                                            '&:hover': {
+                                                backgroundColor: '#B0384D',}
+                                        }}>
+                                            View Project
+                                        </Button>
+                                    }
+                                    {project.github_link === "" &&
+                                        <Button variant="contained" disabled
+                                            href={project.github_link} sx={{
+                                                px: 2,
+                                                m: {
+                                                    xs: 0,
+                                                    sm: 0,
+                                                    md: 2,
+                                                    lg: 2,
+                                                },
+                                                mt: {
+                                                    xs: 2,
+                                                    sm: 2,
+                                                    md: 0,
+                                                    lg: 0,
+                                                }
+                                            }}>
+                                                View Project
+                                        </Button>
+                                    }
                                 </Stack>
                             </Box>
                         </Grid>

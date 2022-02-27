@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Button, Box, Grid, Stack, Typography } from '@mui/material'
 import { BsGraphUp } from 'react-icons/bs';
 import { FaAppleAlt, FaPaintBrush, FaPodcast, FaTools } from 'react-icons/fa';
@@ -11,6 +11,7 @@ import Creative from '../../assets/creative.svg';
 import Lost from '../../assets/lost.svg';
 import Love from '../../assets/love.svg';
 import Graph from '../../assets/graph.svg';
+import { useSpring, animated, config } from 'react-spring';
 
 const taglines = [
     {   id: 1,
@@ -62,20 +63,25 @@ const taglines = [
     }];
 
 const Hero = () => {
-    const [ activeTagline, setTagline] = useState(0);
-    const [ activePicture, setPicture ] = useState(0);
+    const [ activeTagline, setTagline ] = useState(0);
+
+    const woop = useSpring({
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+        reset: true,
+        config: { duration: "100"},
+        config: config.molasses,
+    });
 
     const TaglineRandomizer = () => {
-        const quote_len = taglines.length;
-        setTagline(Math.floor(Math.random() * quote_len));
-    }
-
-    useEffect(() => {
-        const pic_len = taglines.length;
-        setPicture(() => {
-            Math.floor(Math.random() * pic_len);
+        setTagline(() => {
+            let newTagline = Math.floor(Math.random() * taglines.length);
+            while (newTagline === activeTagline) {
+                newTagline = Math.floor(Math.random() * taglines.length);
+            }
+            return newTagline;
         })
-    }, [])
+    }
 
     const TheIcon = taglines[activeTagline].icon_ref
     const ThePicture = taglines[activeTagline].pic_ref
@@ -83,8 +89,8 @@ const Hero = () => {
     return (
         <div id="home">
             <Container href="#home" sx={{my: {
-                xs: 30,
-                sm: 30,
+                xs: 20,
+                sm: 20,
                 md: 48,
                 lg: 30,
             }}}>
@@ -118,8 +124,8 @@ const Hero = () => {
                                 fontWeight: 'bold',
                                 fontFamily: 'Helvetica',
                                 fontSize: {
-                                    xs: 44,
-                                    sm: 44,
+                                    xs: 40,
+                                    sm: 40,
                                     md: 48,
                                     lg: 52,
                                 }
@@ -130,42 +136,52 @@ const Hero = () => {
                             display: 'flex',
                             flexDirection: 'row',
                         }}>
-                            <Box key={taglines.id} sx={{
-                                    color: '#F28346',
-                                    fontWeight: 'bold',
-                                    letterSpacing: 1,
-                                    textTransform: 'Capitalize',
-                                    fontFamily: 'Helvetica',
-                                    pr: 1,
-                                    mt: 1,
-                                    fontSize: {
-                                        xs: 20,
-                                        sm: 20,
-                                        md: 28,
-                                        lg: 42,
-                                    }
-                                }}>
-                                {taglines[activeTagline].quote}
-                            </Box>
-                            <Box key={taglines.id} sx={{
-                                    color: 'orange',
-                                    pl: 2,
-                                    mt: 1,
-                                    fontSize: {
-                                        xs: 28,
-                                        sm: 28,
-                                        md: 28,
-                                        lg: 42,
-                                    },
-                                    display: {
-                                        xs: 'none',
-                                        sm: 'none',
-                                        md: 'flex',
-                                        lg: 'flex'
-                                    }
-                                }}>
-                                <TheIcon />
-                            </Box>
+                            <animated.div style={woop}
+                            onAnimationEnd={woop}>
+                                <Box key={taglines.id} sx={{
+                                        color: '#F28346',
+                                        fontWeight: 'bold',
+                                        letterSpacing: 1,
+                                        textTransform: 'Capitalize',
+                                        fontFamily: 'Helvetica',
+                                        pr: 1,
+                                        mt: {
+                                            xs: 3,
+                                            sm: 3,
+                                            md: 1,
+                                            lg: 1,
+                                        },
+                                        fontSize: {
+                                            xs: 20,
+                                            sm: 20,
+                                            md: 28,
+                                            lg: 42,
+                                        }
+                                    }}>
+                                    {taglines[activeTagline].quote}
+                                </Box>
+                            </animated.div>
+                            <animated.div style={woop}>
+                                <Box key={taglines.id} sx={{
+                                        color: 'orange',
+                                        pl: 2,
+                                        mt: 1,
+                                        fontSize: {
+                                            xs: 28,
+                                            sm: 28,
+                                            md: 28,
+                                            lg: 42,
+                                        },
+                                        display: {
+                                            xs: 'none',
+                                            sm: 'none',
+                                            md: 'flex',
+                                            lg: 'flex'
+                                        }
+                                    }}>
+                                    <TheIcon />
+                                </Box>
+                            </animated.div>
                         </Stack>
                         <Stack sx={{
                             display: 'flex',
@@ -195,17 +211,18 @@ const Hero = () => {
                                     </Box>
                                     <Box sx={{
                                         display: {
-                                            xs: 'none',
-                                            sm: 'none',
+                                            xs: 'flex',
+                                            sm: 'flex',
                                             md: 'flex',
                                             lg: 'flex',
-                                        }, px: {
-                                            xs: 0,
-                                            sm: 0,
-                                            md: 1,
-                                            lg: 1,
+                                        }, 
+                                        ml: {
+                                            xs: 1,
+                                            sm: 1,
+                                            md: 0,
+                                            lg: 0,
                                         }}}>
-                                        <FaAppleAlt size="24"/>
+                                        <FaAppleAlt size="18"/>
                                     </Box>
                                 </Button>
                             </Box>
@@ -229,8 +246,8 @@ const Hero = () => {
                                     p: {
                                         xs: 0.75,
                                         sm: 0.75,
-                                        md: 1.5,
-                                        lg: 1.5,
+                                        md: 1.65,
+                                        lg: 1.65,
                                     },
                                     '&:hover': {
                                         borderColor: '#fc575e',
@@ -241,21 +258,30 @@ const Hero = () => {
                             </Box>
                         </Stack>
                     </Grid>
-                    <Grid item lg={4} sm={12} md={4}>
+                    <Grid item lg={4} sm={12} xs={12} md={4} sx={{
+                        my: {
+                            xs: 6,
+                            sm: 6,
+                            md: 0,
+                            lg: 0,
+                        }
+                    }}>
                         <Box sx={{
                             display: {
-                                xs: 'none',
-                                sm: 'none',
+                                xs: 'flex',
+                                sm: 'flex',
                                 md: 'flex',
                                 lg: 'flex',
                             }
                         }}>
-                            <img 
-                                src={ThePicture}
-                                style={{height: '80%', width: '80%'}}
-                                alt="svg picture"
-                                >
-                            </img>
+                            <animated.div style={woop}>
+                                <img 
+                                    src={ThePicture}
+                                    style={{height: '90%', width: '90%'}}
+                                    alt="svg picture"
+                                    >
+                                </img>
+                            </animated.div>
                         </Box>
                     </Grid>
                 </Grid>

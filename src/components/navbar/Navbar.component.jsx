@@ -4,8 +4,6 @@ import { RiMenu2Line } from 'react-icons/ri';
 import Apple from '../../assets/apple.svg';
 
 
-// const pages = ["Home", "Expertise", "Projects", "Toolkits", "About"];
-
 const pages = [
   {
     id: 1,
@@ -55,8 +53,7 @@ const Navbar = () => {
             display: 'flex',
             justifyContent: 'space-between',
         }}>  
-        {/* Mobile Devices___________________________________________________________________________*/}
-        {/* Logo Name__________________________________________*/}
+        {/*Desktop Logo Name__________________________________________*/}
           <Typography
             variant="h6"
             noWrap
@@ -71,7 +68,7 @@ const Navbar = () => {
                 '&:hover':{
                     color: '#F28346',}}}
           >
-            SAHARATH  
+            SAHARATH
             <img
               src={Apple}
               style={{height: 35, width: 35, paddingLeft: '0.5rem',}}
@@ -120,14 +117,13 @@ const Navbar = () => {
               ))}
             </Menu>
         {/* End Menu bar on mobile__________________*/}
-        {/* End Mobile section________________________________________*/}
 
 
-        {/* Desktop Screen*/}
+        {/* Logo on Mobile*/}
           </Box>
           <Box sx={{
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
           }}>
             <Typography
               variant="h6"
@@ -143,6 +139,9 @@ const Navbar = () => {
                 >
               </img>
             </Typography>
+            {/* End logo on Mobile*/}
+
+            {/*Menu Bar on Desktop*/}
             <Box sx={{ flexGrow: 1, mr: 3, display: { xs: 'none', md: 'flex' }, }}>
               {pages.map((page) => (
                 <Button
@@ -160,8 +159,8 @@ const Navbar = () => {
                 </Button>
               ))}
             </Box>
+            {/* End MenuBar on Desktop*/}
           </Box>
-        {/* End Desktop Section*/}
         </Toolbar>
       </Container>
     </AppBar>
