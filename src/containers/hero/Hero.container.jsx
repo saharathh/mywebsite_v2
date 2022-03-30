@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Button, Box, Grid, Stack, Typography } from '@mui/material'
+import { useSpring, animated, config } from 'react-spring';
+
+//icons
 import { BsGraphUp } from 'react-icons/bs';
 import { FaAppleAlt, FaPaintBrush, FaPodcast, FaTools } from 'react-icons/fa';
 import { GiShinyApple, GiSpellBook, GiFizzingFlask, GiLoveSong } from 'react-icons/gi';
+import { MdCastForEducation } from 'react-icons/md';
+
+//images
 import StartUp from '../../assets/startup.svg';
+import Education from '../../assets/education.svg';
 import Read from '../../assets/read.svg';
 import Music from '../../assets/music.svg';
 import Idea from '../../assets/idea.svg';
@@ -11,19 +18,18 @@ import Creative from '../../assets/creative.svg';
 import Lost from '../../assets/lost.svg';
 import Love from '../../assets/love.svg';
 import Graph from '../../assets/graph.svg';
-import { useSpring, animated, config } from 'react-spring';
 
 const taglines = [
     {   id: 1,
-        quote: "A T-shaped skill Developer",
+        quote: "A T-shaped skill Professional",
         icon_ref: FaTools,
         pic_ref: StartUp,
     },
     {
         id: 2,
-        quote: "Love your given Apple !!",
-        icon_ref: GiShinyApple,
-        pic_ref: Love,
+        quote: "A life-long Learner",
+        icon_ref: MdCastForEducation,
+        pic_ref: Education
     },
     {
         id: 3,
@@ -45,13 +51,13 @@ const taglines = [
     },
     {
         id: 6,
-        quote: "is a Digital Marketer",
+        quote: "A Digital Marketer",
         icon_ref: GiLoveSong,
         pic_ref: Lost,
     },
     {
         id: 7,
-        quote: "is a Feasibility Analyst",
+        quote: "A Feasibility Analyst",
         icon_ref: BsGraphUp,
         pic_ref: Graph,
     },
@@ -60,6 +66,12 @@ const taglines = [
         quote: "Love Listening to Podcast",
         icon_ref: FaPodcast,
         pic_ref: Music,
+    },
+    {
+        id: 9,
+        quote: "Love your given Apple !!",
+        icon_ref: GiShinyApple,
+        pic_ref: Love,
     }];
 
 const Hero = () => {
@@ -88,10 +100,10 @@ const Hero = () => {
 
     return (
         <div id="home">
-            <Container href="#home" sx={{my: {
+            <Container sx={{my: {
                 xs: 20,
                 sm: 20,
-                md: 48,
+                md: 30,
                 lg: 30,
             }}}>
                 <Grid container sx={{
@@ -210,18 +222,9 @@ const Hero = () => {
                                         Change Me
                                     </Box>
                                     <Box sx={{
-                                        display: {
-                                            xs: 'flex',
-                                            sm: 'flex',
-                                            md: 'flex',
-                                            lg: 'flex',
-                                        }, 
-                                        ml: {
-                                            xs: 1,
-                                            sm: 1,
-                                            md: 0,
-                                            lg: 0,
-                                        }}}>
+                                        display: 'flex', 
+                                        ml: 1
+                                        }}>
                                         <FaAppleAlt size="18"/>
                                     </Box>
                                 </Button>
@@ -267,12 +270,7 @@ const Hero = () => {
                         }
                     }}>
                         <Box sx={{
-                            display: {
-                                xs: 'flex',
-                                sm: 'flex',
-                                md: 'flex',
-                                lg: 'flex',
-                            }
+                            display: 'flex'
                         }}>
                             <animated.div style={woop}>
                                 <img 

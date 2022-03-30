@@ -44,14 +44,14 @@ const Header = ({subHeader, Header, AdditionalHeader, textSubtitle}) => {
                 {AdditionalHeader}
             </Typography>
             <Typography sx={{
-                color: '#5C6E8A',
+                color: '#899198',
                 fontSize: {
                     xs: 16,
                     sm: 16,
                     md: 18,
                     lg: 18,
                 },
-                fontWeight: 300,
+                fontWeight: 400,
             }}>
                 {textSubtitle}
             </Typography>

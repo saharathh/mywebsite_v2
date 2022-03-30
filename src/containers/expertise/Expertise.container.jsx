@@ -1,14 +1,13 @@
 import React from 'react';
 import { Box, Container, Grid, Paper, Stack, Typography } from '@mui/material'
-import { FaRedo, FaMobileAlt, FaRegLightbulb, FaRegThumbsUp } from 'react-icons/fa';
+import { FaMobileAlt, FaRegLightbulb, FaRegThumbsUp } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import Header from '../../components/header/Header.component';
-import { TiLightbulb } from 'react-icons/ti'
 
 const sections = [{
     id: 1,
     title: 'Feasibility Study',
-    subtitle: 'Refine your greatest idea with the process of design thinking and financial feasibility study',
+    subtitle: 'Refine your greatest idea with the process of design thinking, market and financial feasibility studies',
     iconref: FaRegLightbulb 
 },
 {
@@ -33,12 +32,12 @@ const Expertise = () => {
                 md: 14,
                 lg: 14,
             }}}>
-                <Header subHeader="Expertises" Header="Business, Design, and Technology" AdditionalHeader="Three components for your business' success"/>
+                <Header subHeader="Expertises" Header="Business, Design, and Technology" AdditionalHeader="Three components for your business success"/>
                 <Grid container spacing={4}>
                 {sections.map(section => {
                     const TheIconTitle = section.iconref
                     return (
-                        <Grid item key={section.id} lg={4} md={12}>
+                        <Grid item key={section.id} lg={4} md={4}>
                             <Paper sx={{
                                 p:2,
                                 mt: 2,

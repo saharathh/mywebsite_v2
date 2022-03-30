@@ -5,7 +5,6 @@ const Paragraph = ({paragraph}) => {
     return (
         <>
         <Box sx={{
-            color: '#5C6E8A',
             fontWeight: 400,
             fontFamily: 'Helvetica',
             lineHeight: 1.5,
@@ -22,8 +21,10 @@ const Paragraph = ({paragraph}) => {
             },
             ml: {
                 lg: 4,
-            }}}>     
-            {paragraph}
+            }}}>
+            <Typography sx={{color: '#899198'}}>     
+                {paragraph}
+            </Typography>
         </Box>
         </>
     )

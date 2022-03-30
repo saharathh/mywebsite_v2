@@ -106,7 +106,7 @@ const Navbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },}}>
               {pages.map((page) => (
-                <MenuItem component="a" key={page.id} onClick={handleCloseNavMenu}>
+                <MenuItem href={page.link} component="a" key={page.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" sx={{
                       px:4, 
                       '&:hover': {

@@ -1,41 +1,56 @@
 import React from 'react';
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material'
 import { BsFillCartCheckFill } from 'react-icons/bs';
-import { FaGem } from 'react-icons/fa';
+import { FaGem, FaWordpress } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import { GiShinyApple } from 'react-icons/gi';
 import Header from '../../components/header/Header.component';
 import Cart from '../../assets/cart.svg';
 import Web from '../../assets/web.svg';
 import Monitor from '../../assets/monitor.svg';
+import CMS from '../../assets/cms.svg';
 
 const projects = [{
     id: 1,
-    title: 'E-Commerce Website',
+    title: 'Full-stack E-Commerce Website',
     progress: 'on-going',
-    subtitle: "I am trying to build a singple-page web application for fashion businessses with StripeAPI as payment method.",
-    github_link: 'https://github.com/saharathh/e_commerce_project_1',
-    skills: 'ReactJs, Redux, Scss, Firebase',
+    subtitle: "I built an e-commerce website for a korean-style bag brand called Puffle with MERN Stack and deployed in Heroku.",
+    github_link: 'https://github.com/saharathh/puffle',
+    external_link: 'https://puffleprojectecommerce.herokuapp.com/',
+    skills: 'ReactJs, ExpressJS, MongoDB, NodeJS, Material-UI, Scss, UX/UI Design',
     icon_ref: BsFillCartCheckFill,
     pic_ref: Cart
 },
 {
     id: 2,
+    title: "Contentbooknotes: WordPress-based Content Website",
+    progress: 'on-going',
+    subtitle: "I am developing, designing a WordPress-based Website called Contentbooknotes, and focusing on writing long-form, research-based content about business, technology, and productivity. You can visit my writing here.",
+    github_link: 'none',
+    external_link: 'https://contentbooknotes.com/deep-work/',
+    skills: 'Content Writing, SEO, Brand Management, UX/UI Design',
+    icon_ref: FaWordpress,
+    pic_ref: CMS
+},
+{
+    id: 3,
     title: "My Portfolio Website",
     progress: 'on-going',
     subtitle: "I always learn about new technology, frameworks or libraries that can boost my quality of work. Next time you visit this website, it might not look the same, but I will make sure that it will be better.",
     github_link: 'https://github.com/saharathh/mywebsite_v2',
-    skills: 'ReactJs, Material-UI, React Spring',
+    external_link: 'saharath',
+    skills: 'ReactJs, Material-UI, UX/UI Design',
     icon_ref: GiShinyApple,
     pic_ref: Web
 },
 {
-    id: 3,
+    id: 4,
     title: 'Full-Stack Social Monitoring Tool Prototype',
     progress: 'on-going',
     subtitle: "I'm interviewing digital marketers and content creators to find their absolute need features and build my social monitoring tool powered by NLP technology based on the interview's insight.",
-    github_link: '',
+    github_link: 'none',
     skills: 'MongoDB, ExpressJS, ReactJS, NodeJS, TwitterAPI, Pandas, Scikit-learn, Machine Learning',
+    external_link: 'none',
     icon_ref: FaGem,
     pic_ref: Monitor
 },];
@@ -102,10 +117,9 @@ const Project = () => {
                                     direction:'column',
                                     p: 3,
                                     alignItems: {
-                                        xs: 'flex-start',
-                                        sm: 'flex-start',
+                                        xs: 'center',
                                         md: 'flex-start',
-                                        lg: 'flex-start'
+                                        lg: 'flex-start',
                                     }
                                 }}>
                                     <Box sx={{
@@ -131,6 +145,7 @@ const Project = () => {
                                             alignItems: 'center',
                                             fontFamily: 'Helvetica',
                                             fontWeight: 'bold',
+                                            textAlign: 'center',
                                             fontSize: {
                                                 xs: 16,
                                                 sm: 16,
@@ -143,7 +158,7 @@ const Project = () => {
                                     </Box>
                                     <Typography sx={{
                                         px: 2,
-                                        py: 2,
+                                        py: 1,
                                         fontSize: 16,
                                         fontWeight: 400,
                                         color: '#899198',
@@ -191,56 +206,63 @@ const Project = () => {
                                             fontFamily: 'Helvetica',
                                             fontWeight: 400,
                                             color: '#B0384D',
+                                            textAlign: 'center',
                                             justifyContent: 'center',
                                             alignItems: 'center',
                                         }}>
                                             {project.skills}
                                         </Typography>
                                     </Box>
-                                    {project.github_link !== "" &&
+                                    <Stack sx={{display: 'flex', flexDirection: 'row', textAlign: 'center'}}>
+                                    {project.external_link === 'none' ? (
+                                        <Button variant="contained" disabled sx={{
+                                            px: 2,
+                                            m: 2}}>
+                                            View Project
+                                        </Button>
+                                    ) :
+                                    project.external_link === 'saharath' ? (
+                                        <Button variant="contained" disabled sx={{
+                                            px: 2,
+                                            m: 2}}>
+                                            You're here!
+                                        </Button>
+                                    )
+                                    : (
                                         <Button variant="contained" 
-                                        href={project.github_link} 
+                                        href={project.external_link} 
                                         sx={{
                                             backgroundColor: '#F28346',
                                             px: 2,
-                                            m: {
-                                                xs: 0,
-                                                sm: 0,
-                                                md: 2,
-                                                lg: 2,
-                                            },
-                                            my: {
-                                                xs: 2,
-                                                sm: 2,
-                                                md: 0,
-                                                lg: 0,
-                                            },
+                                            m: 2,
                                             '&:hover': {
                                                 backgroundColor: '#B0384D',}
                                         }}>
                                             View Project
                                         </Button>
-                                    }
-                                    {project.github_link === "" &&
-                                        <Button variant="contained" disabled
-                                            href={project.github_link} sx={{
-                                                px: 2,
-                                                m: {
-                                                    xs: 0,
-                                                    sm: 0,
-                                                    md: 2,
-                                                    lg: 2,
-                                                },
-                                                mt: {
-                                                    xs: 2,
-                                                    sm: 2,
-                                                    md: 0,
-                                                    lg: 0,
-                                                }
-                                            }}>
-                                                View Project
+                                    )}
+                                    {project.github_link === 'none' ? (
+                                        <Button variant="outlined" disabled sx={{
+                                            px: 2,
+                                            m: 2}}>
+                                            View GitHub
                                         </Button>
-                                    }
+                                    ) : (
+                                        <Button variant="outlined" 
+                                        href={project.github_link} 
+                                        sx={{
+                                            color: '#F28346',
+                                            borderColor: '#F28346',
+                                            px: 2,
+                                            m: 2,
+                                            '&:hover': {
+                                                borderColor: '#B0384D',
+                                                color: '#B0384D'}
+                                        }}>
+                                            View GitHub
+                                        </Button>
+                                    )}
+                                    </Stack>
                                 </Stack>
                             </Box>
                         </Grid>

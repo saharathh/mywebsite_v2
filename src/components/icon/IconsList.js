@@ -1,80 +1,88 @@
 import { FaReact, FaSass, FaDocker, FaPython } from 'react-icons/fa';
 
-import { SiFirebase, SiMaterialui, SiFramer, SiPowerbi, SiPandas, 
-    SiSelenium, SiScikitlearn, SiRedux, SiStyledcomponents } from 'react-icons/si';
+import { SiMaterialui, SiPowerbi, SiPandas, 
+    SiSelenium, SiScikitlearn, SiRedux } from 'react-icons/si';
 
 import { AiOutlineConsoleSql } from 'react-icons/ai';
-import { DiJavascript1 } from 'react-icons/di';
+import { DiJavascript1, DiNodejs } from 'react-icons/di';
 
 export const IconsList = [
     {
         id: 1,
         name: 'ReactJs',
         ref: FaReact,
+        progress: 'competence'
     },
     {
         id: 2,
         name: 'JavaScript',
         ref: DiJavascript1,
+        progress: 'competence'
     },
     {
         id: 3,
-        name: 'Sass',
+        name: 'Scss',
         ref: FaSass,
+        progress: 'competence'
     },
     {
         id: 4,
         name: 'Redux',
         ref: SiRedux,
+        progress: 'competence',
     },
     {
         id: 5,
         name: 'Material-UI',
         ref: SiMaterialui,
+        progress: 'competence'
     },
     {
         id: 6,
-        name: 'Framer Motion',
-        ref: SiFramer,
+        name: 'Python',
+        ref: FaPython,
+        progress: 'competence'
     },
     {
         id: 7,
-        name: 'Firebase',
-        ref: SiFirebase,
+        name: 'Pandas',
+        ref: SiPandas,
+        progress: 'competence'
     },
     {
         id: 8,
-        name: 'Docker',
-        ref: FaDocker,
+        name: 'SQL',
+        ref: AiOutlineConsoleSql,
+        progress: 'competence'
     },
     {
         id: 9,
-        name: 'Python',
-        ref: FaPython,
+        name: 'Selenium',
+        ref: SiSelenium,
+        progress: 'competence'
     },
     {
         id: 10,
-        name: 'Pandas',
-        ref: SiPandas,
+        name: 'PowerBI',
+        ref: SiPowerbi,
+        progress: 'competence'
     },
     {
         id: 11,
-        name: 'SQL',
-        ref: AiOutlineConsoleSql,
+        name: 'Scikit-Learn',
+        ref: SiScikitlearn,
+        progress: 'learning'
     },
     {
         id: 12,
-        name: 'PowerBI',
-        ref: SiPowerbi,
+        name: 'nodeJS',
+        ref: DiNodejs,
+        progress: 'learning'
     },
     {
         id: 13,
-        name: 'Selenium',
-        ref: SiSelenium,
-    },
-    {
-        id: 14,
-        name: 'Scikit-Learn',
-        ref: SiScikitlearn,
+        name: 'Docker',
+        ref: FaDocker,
+        progress: 'learning'
     },
 ]
